@@ -132,26 +132,26 @@ services:
       - mongo-secondary
       - rabbit
 
-  write-service:
-    image: systemgenesis0/write
-    restart: unless-stopped
-    ports:
-      - 4000:4000
-    volumes:
-      - ./docker-compose-config/write/config/write-env.json:/config/default.json
-    depends_on: 
-      - mongo-primary
-      - mongo-secondary
-      - rabbit
-    networks: 
-      - my-network
+  # write-service:
+  #   image: systemgenesis0/write
+  #   restart: unless-stopped
+  #   ports:
+  #     - 4000:4000
+  #   volumes:
+  #     - ./docker-compose-config/write/config/write-env.json:/config/default.json
+  #   depends_on: 
+  #     - mongo-primary
+  #     - mongo-secondary
+  #     - rabbit
+  #   networks: 
+  #     - my-network
   
   populate-kartoffel:
     image: systemgenesis0/populate-kartoffel
     restart: always
     ports:
       - 3001:3001
-    env_file: populate-kartoffel.env
+    env_file: ./docker-compose-config/populate-kartoffel/config/populate-kartoffel.env
     depends_on: 
       - mongo-primary
       - mongo-secondary
@@ -179,26 +179,26 @@ services:
       - 8000:8000
     env_file: ./docker-compose-config/read-service/config/read-service.env
     depends_on:
-      - sync-service
+   #   - sync-service
       - mongo-primary
       - mongo-secondary
     networks: 
       - my-network
 
-  gate:
-    image: systemgenesis0/gate
-    restart: unless-stopped
-    ports:
-      - 7040:3001
-    env_file: ./docker-compose-config/gate/config/gate.env
-    volumes:
-      - ./docker-compose-config/gate/volumes/config.js:/src/config/index.js
-    depends_on:
-      - search
-      - read-service
-      - write-service
-    networks: 
-      - my-network
+  # gate:
+  #   image: systemgenesis0/gate
+  #   restart: unless-stopped
+  #   ports:
+  #     - 7040:3001
+  #   env_file: ./docker-compose-config/gate/config/gate.env
+  #   volumes:
+  #     - ./docker-compose-config/gate/volumes/config.js:/src/config/index.js
+  #   depends_on:
+  #     - search
+  #     - read-service
+  #     - write-service
+  #   networks: 
+  #     - my-network
 
 networks: 
   my-network:
