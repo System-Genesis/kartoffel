@@ -172,18 +172,18 @@ services:
     networks: 
       - my-network
 
-  read-service:
-    image: systemgenesis0/read-service
-    restart: unless-stopped
-    ports:
-      - 8000:8000
-    env_file: ./docker-compose-config/read-service/config/read-service.env
-    depends_on:
-   #   - sync-service
-      - mongo-primary
-      - mongo-secondary
-    networks: 
-      - my-network
+  # read-service:
+  #   image: systemgenesis0/read-service
+  #   restart: unless-stopped
+  #   ports:
+  #     - 8000:8000
+  #   env_file: ./docker-compose-config/read-service/config/read-service.env
+  #   depends_on:
+  #  #   - sync-service
+  #     - mongo-primary
+  #     - mongo-secondary
+  #   networks: 
+  #     - my-network
 
   # gate:
   #   image: systemgenesis0/gate
