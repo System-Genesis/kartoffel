@@ -147,7 +147,7 @@ services:
   #     - my-network
   
   populate-kartoffel:
-    image: systemgenesis0/populate-kartoffel
+    image: systemgenesis0/populate-kartoffel:prefix
     restart: always
     ports:
       - 3001:3001
@@ -159,18 +159,18 @@ services:
     networks: 
       - my-network
 
-  search:
-    image: systemgenesis0/search
-    restart: unless-stopped
-    ports:
-      - 9001:9001
-    env_file: ./docker-compose-config/search/config/search_docker.env
-    depends_on:
-      - populate-kartoffel
-      - rabbit
-      - elasticsearch
-    networks: 
-      - my-network
+  # search:
+  #   image: systemgenesis0/search
+  #   restart: unless-stopped
+  #   ports:
+  #     - 9001:9001
+  #   env_file: ./docker-compose-config/search/config/search_docker.env
+  #   depends_on:
+  #     - populate-kartoffel
+  #     - rabbit
+  #     - elasticsearch
+  #   networks: 
+  #     - my-network
 
   # read-service:
   #   image: systemgenesis0/read-service
