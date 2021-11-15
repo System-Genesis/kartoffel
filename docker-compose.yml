@@ -151,7 +151,7 @@ services:
     restart: always
     ports:
       - 3001:3001
-    env_file: populate-kartoffel.env
+    env_file: ./docker-compose-config/populate-kartoffel/config/populate-kartoffel.env
     depends_on: 
       - mongo-primary
       - mongo-secondary
@@ -179,7 +179,7 @@ services:
       - 8000:8000
     env_file: ./docker-compose-config/read-service/config/read-service.env
     depends_on:
-      - sync-service
+      - populate-kartoffel
       - mongo-primary
       - mongo-secondary
     networks: 
