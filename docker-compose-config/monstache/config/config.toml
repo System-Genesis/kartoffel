@@ -40,6 +40,6 @@ path = "scripts/transform_entity.js"
 # namespace = "kartoffel.denormalizedRole"
 # path = "scripts/transform_role.js"
 
-# [script]]
-# namespace = "kartoffel.denormalizedOrganizationGroup"
-# path = "scripts/transform_group.js"
+[script]]
+namespace = "kartoffel.denormalizedOrganizationGroup"
+path = "scripts/transform_group.js"
