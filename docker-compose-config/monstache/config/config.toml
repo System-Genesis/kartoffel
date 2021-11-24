@@ -37,9 +37,9 @@ path = "scripts/transform_entity.js"
 # path = "scripts/transform_DI.js"
 
 # [[script]]
-# namespace = "kartoffel.denormalizedRole"
+# namespace = "kartoffelMock.denormalizedRole"
 # path = "scripts/transform_role.js"
 
 [script]]
-namespace = "kartoffel.denormalizedOrganizationGroup"
+namespace = "kartoffelMock.denormalizedOrganizationGroup"
 path = "scripts/transform_group.js"
