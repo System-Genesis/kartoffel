@@ -1,3 +1,4 @@
 module.exports = function(doc) {
-  return doc;
+  doc.id = doc._id;
+  return _.omit(doc, '_id');
 }
